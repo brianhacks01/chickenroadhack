@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chicken Road Predictor</title>
+  <style>
+    body {
+      background: #141414;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ffdd57;
+    }
+    #prediction {
+      font-size: 3rem;
+      margin: 2rem 0;
+      font-weight: bold;
+    }
+    button {
+      background: #ffdd57;
+      color: #141414;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #ffc107;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐔 Chicken Road Predictor</h1>
+  <p>Get your next safe multiplier prediction!</p>
+  <div id="prediction">--</div>
+  <button onclick="getPrediction()">Get Prediction</button>
+
+  <script>
+    function getPrediction() {
+      // Генерация "предсказания" (рандомное число от 1.5 до 4.0)
+      const min = 1.5;
+      const max = 4.0;
+      const multiplier = (Math.random() * (max - min) + min).toFixed(2);
+      document.getElementById('prediction').textContent = multiplier + "x";
+    }
+
+    // Первое авто-предсказание
+    window.onload = getPrediction;
+  </script>
+</body>
+</html>
