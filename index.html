@@ -97,6 +97,31 @@
       window.open('https://example.com/create-account', '_blank'); // Сюда вставишь свою реальную ссылку
     }
 
+    function checkIdAndLength() {
+  const userIdInput = document.getElementById('userId');
+  let userId = userIdInput.value;
+
+  // Обрезаем всё, что больше 10 символов
+  if (userId.length > 10) {
+    userId = userId.slice(0, 10);
+    userIdInput.value = userId;
+  }
+
+  const predictBtn = document.getElementById('predictBtn');
+  const warning = document.getElementById('warning');
+  const createAccountBtn = document.getElementById('createAccountBtn');
+
+  if (userId.startsWith('123')) {
+    predictBtn.style.display = 'inline-block';
+    warning.style.display = 'none';
+    createAccountBtn.style.display = 'none';
+  } else {
+    predictBtn.style.display = 'none';
+    warning.style.display = 'block';
+    createAccountBtn.style.display = 'inline-block';
+  }
+}
+
     function getPrediction() {
       const id = document.getElementById('gameId').value;
       if (!id.startsWith('123')) {
