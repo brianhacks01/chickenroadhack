@@ -70,8 +70,9 @@
       <option value="hard">Hard</option>
       <option value="hardcore">Hardcore</option>
     </select>
-    <div id="prediction">--</div>
+    <br/>
     <button onclick="getPrediction()">Get Prediction</button>
+    <div id="prediction" style="margin-top:20px; font-size:2rem;">--</div>
   </div>
 
   <script>
@@ -87,6 +88,7 @@
       if (userId.startsWith('123')) {
         document.getElementById('idSection').style.display = 'none';
         document.getElementById('gameSection').style.display = 'block';
+        document.getElementById('prediction').style.display = 'block'; // Включаем предсказания
       } else {
         document.getElementById('idSection').style.display = 'none';
         document.getElementById('warningSection').style.display = 'block';
@@ -113,7 +115,7 @@
       }
 
       const randomCoeff = filtered[Math.floor(Math.random() * filtered.length)];
-      document.getElementById('prediction').textContent = randomCoeff + "x";
+      document.getElementById('prediction').textContent = randomCoeff.toFixed(2) + "x";
     }
   </script>
 </body>
